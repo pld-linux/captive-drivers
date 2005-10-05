@@ -1,6 +1,7 @@
 # the drivers that were supposed to work. didn't.
 # so these drivers didn't work for me.
 Summary:	NTFS Drivers
+Summary(pl):	Sterowniki NTFS
 Name:		captive-drivers
 Version:	0.1
 Release:	0.1
@@ -14,15 +15,16 @@ ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Contains ntfs.sys and ntoskrnl.exe from XP SP1.
+Contains ntfs.sys and ntoskrnl.exe from Windows XP SP1.
+
+%description -l pl
+Pakiet zawieraj±cy ntfs.sys i ntoskrnl.exe z Windows XP SP1.
 
 %prep
 %setup -q -c -T
 cabextract %{SOURCE0} -F ntfs.sys
 cabextract %{SOURCE0} -F ntoskrnl.ex_
 cabextract ntoskrnl.ex_
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
