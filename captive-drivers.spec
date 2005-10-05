@@ -7,12 +7,9 @@ Release:	0.1
 License:	restricted, non-distributable
 Group:		Applications/System
 Source0:	http://download.microsoft.com/download/9/7/6/9763833d-bd58-41e2-9911-50f64c7252a3/xpsp1a_en_x86_CHK.exe
-# NoSource0-md5:	52ea53ae2cf93247ca07c0cf257367b6
+# NoSource0-md5:	257c90b85f20f597caad8a4bd8c481ef
 NoSource:	0
-BuildRequires:	rpm-utils
-BuildRequires:	unzip
-BuildRequires:	mawk
-BuildRequires:	cdrtools-utils
+BuildRequires:	cabextract
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -21,12 +18,16 @@ Contains ntfs.sys and ntoskrnl.exe from XP SP1.
 
 %prep
 %setup -q -c -T
+cabextract %{SOURCE0} -F ntfs.sys
+cabextract %{SOURCE0} -F ntoskrnl.ex_
+cabextract ntoskrnl.ex_
 
 %build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/var/lib/captive
+install ntfs.sys ntoskrnl.exe $RPM_BUILD_ROOT/var/lib/captive
 
 %clean
 rm -rf $RPM_BUILD_ROOT
