@@ -1,16 +1,17 @@
-# the drivers that were supposed to work. didn't.
+# the drivers that were supposed to work, didn't.
 # so these drivers didn't work for me.
 Summary:	NTFS Drivers
 Summary(pl):	Sterowniki NTFS
 Name:		captive-drivers
 Version:	0.1
-Release:	0.1
+Release:	0.2
 License:	restricted, non-distributable
 Group:		Applications/System
 Source0:	http://download.microsoft.com/download/9/7/6/9763833d-bd58-41e2-9911-50f64c7252a3/xpsp1a_en_x86_CHK.exe
 # NoSource0-md5:	257c90b85f20f597caad8a4bd8c481ef
 NoSource:	0
 BuildRequires:	cabextract
+Requires:	captive
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
