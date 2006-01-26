@@ -19,6 +19,7 @@ Release:	%{_rel}%{?with_license_agreement:wla}
 Group:		Libraries
 License:	restricted, non-distributable
 %if %{with license_agreement}
+# NB! This is 145M download.
 Source0:	%{source_url}xpsp1a_en_x86_CHK.exe
 BuildRequires:	cabextract
 Requires:	captive
