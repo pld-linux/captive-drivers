@@ -35,7 +35,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Contains ntfs.sys and ntoskrnl.exe from Windows XP SP1.
-%if %{without license_agreement}
+%if !%{with license_agreement}
 License issues made us not to include inherent files into this package
 by default. If you want to create full working package please build it
 with the following command:
@@ -45,7 +45,7 @@ with the following command:
 
 %description -l pl
 Pakiet zawieraj±cy ntfs.sys i ntoskrnl.exe z Windows XP SP1.
-%if %{without license_agreement}
+%if !%{with license_agreement}
 Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
 plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
 pomoc± polecenia:
@@ -64,7 +64,7 @@ cabextract ntoskrnl.ex_
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%if %{without license_agreement}
+%if !%{with license_agreement}
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{base_name}}
 
 sed -e '
@@ -81,7 +81,7 @@ install -d $RPM_BUILD_ROOT/var/lib/captive
 install ntfs.sys ntoskrnl.exe $RPM_BUILD_ROOT/var/lib/captive
 %endif
 
-%if %{without license_agreement}
+%if !%{with license_agreement}
 %post
 %{_bindir}/%{base_name}.install
 %endif
