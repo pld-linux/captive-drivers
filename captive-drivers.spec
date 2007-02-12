@@ -6,7 +6,7 @@
 %define		source_url      http://download.microsoft.com/download/9/7/6/9763833d-bd58-41e2-9911-50f64c7252a3/
 #
 Summary:	NTFS Drivers
-Summary(pl):	Sterowniki NTFS
+Summary(pl.UTF-8):   Sterowniki NTFS
 %define		base_name	captive-drivers
 %if %{with license_agreement}
 Name:		%{base_name}
@@ -43,12 +43,12 @@ with the following command:
 %{base_name}.install --with license_agreement %{_datadir}/%{base_name}/%{base_name}.spec
 %endif
 
-%description -l pl
-Pakiet zawieraj±cy ntfs.sys i ntoskrnl.exe z Windows XP SP1.
+%description -l pl.UTF-8
+Pakiet zawierajÄ…cy ntfs.sys i ntoskrnl.exe z Windows XP SP1.
 %if !%{with license_agreement}
-Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
-plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
-pomoc± polecenia:
+Kwestie licencji zmusiÅ‚y nas do niedoÅ‚Ä…czania do tego pakietu istotnych
+plikÃ³w. JeÅ›li chcesz stworzyÄ‡ w peÅ‚ni funkcjonalny pakiet, zbuduj go za
+pomocÄ… polecenia:
 
 %{base_name}.install --with license_agreement %{_datadir}/%{base_name}/%{base_name}.spec
 %endif
