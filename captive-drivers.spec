@@ -6,7 +6,7 @@
 %define		source_url      http://download.microsoft.com/download/9/7/6/9763833d-bd58-41e2-9911-50f64c7252a3/
 #
 Summary:	NTFS Drivers
-Summary(pl.UTF-8):   Sterowniki NTFS
+Summary(pl.UTF-8):	Sterowniki NTFS
 %define		base_name	captive-drivers
 %if %{with license_agreement}
 Name:		%{base_name}
