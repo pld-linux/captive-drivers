@@ -24,10 +24,9 @@ Source0:	%{source_url}xpsp1a_en_x86_CHK.exe
 BuildRequires:	cabextract
 Requires:	captive
 %else
-Source0:	license-installer.sh
-Requires:	cpio
-Requires:	rpm-build-tools
-Requires:	wget
+Source0:	http://svn.pld-linux.org/svn/license-installer/license-installer.sh
+# Source0-md5:	4fb1600353dd57fe088e0b12fb0ecac2
+Requires:	rpm-build-tools >= 4.4.35
 Provides:	%{base_name}
 %endif
 ExclusiveArch:	%{ix86}
@@ -73,6 +72,7 @@ sed -e '
 	s-@VERSION@-%{version}-g
 	s-@RELEASE@-%{release}-g
 	s,@SPECFILE@,%{_datadir}/%{base_name}/%{base_name}.spec,g
+	s,@DATADIR@,%{_datadir}/%{base_name},g
 ' %{SOURCE0} > $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
 
 install %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
