@@ -14,19 +14,21 @@ Name:		%{base_name}
 Name:		%{base_name}-installer
 %endif
 Version:	0.2
-%define		_rel	1
+%define		_rel	2
 Release:	%{_rel}%{?with_license_agreement:wla}
 Group:		Libraries
 License:	restricted, non-distributable
 %if %{with license_agreement}
 # NB! This is 145M download.
 Source0:	%{source_url}xpsp1a_en_x86_CHK.exe
+# Source0-md5:	329c25f457fea66ec502b7ef70cb9ede
 BuildRequires:	cabextract
 Requires:	captive
 %else
 Source0:	http://svn.pld-linux.org/svn/license-installer/license-installer.sh
-# Source0-md5:	4fb1600353dd57fe088e0b12fb0ecac2
-Requires:	rpm-build-tools >= 4.4.35
+# Source0-md5:	329c25f457fea66ec502b7ef70cb9ede
+Requires:	rpm-build-tools >= 4.4.37
+Requires:	rpm-build-macros >= 1.544
 Provides:	%{base_name}
 %endif
 ExclusiveArch:	%{ix86}
